@@ -4,7 +4,9 @@
 
 - This project is an screen adaptable website that simplifies the method of sharing photos online.
 
-- In this project I used responisve design, media queries to to adjust the size of elements based on ones screen size. I also took advantage of grid-layout to style the pictures in a consistent and cohesive way. All code is completed in accordance with BEM metholodogy.    
+- In this project I used responisve design, media queries to to adjust the size of elements based on ones screen size. I also took advantage of grid-layout to style the pictures in a consistent and cohesive way. All code is completed in accordance with BEM metholodogy.
+
+- Link to deployed page on Github: https://shane-muf.github.io/se_project_spots/
 
 ### Overview  
 
