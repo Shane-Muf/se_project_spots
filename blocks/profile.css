@@ -10,6 +10,7 @@
   height: 190px;
   width: 190px;
   margin-right: 20px;
+  border-radius: 8px;
 }
 
 .profile__column {
@@ -50,7 +51,7 @@
   border: none;
   background-color: transparent;
   color: #212121;
-  opacity: 40%;
+  opacity: 70%;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
@@ -77,6 +78,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  border: none;
 }
 
 .profile__add-btn:hover {
