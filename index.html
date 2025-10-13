@@ -113,9 +113,11 @@
       <footer class="footer">
         <p class="footer__description">2023 &copy; Spots</p>
       </footer>
-      <div class="modal">
+      <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn">X</button>
+          <button type="button" class="modal__close-btn">
+            <img src="./images/close-icon.svg" alt="X" />
+          </button>
           <h2 class="modal__title">Edit Profile</h2>
           <form class="modal__form">
             <label for="profile-name-input" class="modal__label">
@@ -140,10 +142,10 @@
           </form>
         </div>
       </div>
-      <div class="modal">
+      <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/close-icon.svg" alt="" />
+            <img src="./images/close-icon.svg" alt="X" />
           </button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form">
@@ -170,5 +172,6 @@
         </div>
       </div>
     </div>
+    <script src="./scripts/idex.js"></script>
   </body>
 </html>
