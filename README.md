@@ -7,7 +7,7 @@
 - In this project I used responisve design, media queries to to adjust the size of elements based on ones screen size. I also took advantage of grid-layout to style the pictures in a consistent and cohesive way. All code is completed in accordance with BEM metholodogy.
 
 - Link to deployed page on Github: https://shane-muf.github.io/se_project_spots/
-- Link to recording of explanation fo the project: https://drive.google.com/file/d/1zLoj2YlJlzF0a2UO-KZaGt7hhCfZPtb2/view?usp=sharing
+- Link to recording of explanation for the project: https://drive.google.com/file/d/1zLoj2YlJlzF0a2UO-KZaGt7hhCfZPtb2/view?usp=sharing
 
 ### Overview  
 
