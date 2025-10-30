@@ -57,6 +57,7 @@
   line-height: 1;
   display: flex;
   gap: 8px;
+  width: fit-content;
 }
 
 .profile__edit-btn:hover {
