@@ -53,12 +53,10 @@
 }
 
 .modal__close-btn_type_preview:hover {
-  cursor: pointer;
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .modal__close-btn:hover {
-  cursor: pointer;
   background-image: url(../images/closebtn_hover-icon.svg);
 }
 
@@ -112,7 +110,7 @@
 
 .modal__submit-btn:hover {
   cursor: pointer;
-  background-color: #000000 !important;
+  background-color: #000000;
 }
 
 .modal__image-container {
@@ -180,5 +178,8 @@
   }
   .modal__image {
     max-width: unset;
+  }
+  .modal__caption {
+    font-size: 16px;
   }
 }

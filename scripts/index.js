@@ -1,9 +1,5 @@
 const initialCards = [
   {
-    name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -32,12 +28,10 @@ const initialCards = [
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
-const editProfileSaveBtn = editProfileModal.querySelector(".modal__submit-btn");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
-const newPostSaveBtn = newPostModal.querySelector(".modal__submit-btn");
 
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const profileNameInput = profileFormElement.querySelector(
@@ -109,6 +103,7 @@ function handleAddCardSubmit(evt) {
   };
   const cardElement = getCardElement(inputValues);
   cardContainer.prepend(cardElement);
+  evt.target.reset();
   closeModal(newPostModal);
 }
 
