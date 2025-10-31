@@ -119,7 +119,7 @@
   }
 
   .profile__edit-btn {
-    justify-content: center;
+    align-self: center;
   }
 
   .profile__add-btn {
