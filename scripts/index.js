@@ -25,12 +25,15 @@ const initialCards = [
   },
 ];
 
+const formModal = document.querySelector(".modal__form");
+
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
+const newPostSubBtn = document.querySelector(".modal__submit-btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
 const profileFormElement = editProfileModal.querySelector(".modal__form");
@@ -61,16 +64,34 @@ const modalPreviewImage = modalPreviewElement.querySelector(".modal__image");
 const modalPreviewCaption =
   modalPreviewElement.querySelector(".modal__caption");
 
+function handleEscapeKey(event) {
+  if (event.key === "Escape") {
+    closeModal(currentModal);
+  }
+}
+
 function openModal(modal) {
+  currentModal = modal;
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
+  modal.addEventListener("click", function (event) {
+    console.log("Modal clicked!");
+    console.log("Clicked element:", event.target);
+    console.log("Element classes:", event.target.classList);
+    if (event.target.classList.contains("modal_is-opened")) {
+      closeModal(modal);
+    }
+  });
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 profileEditBtn.addEventListener("click", function () {
   profileNameInput.value = profileNameElement.textContent;
   profileJobInput.value = profileJobElement.textContent;
+  /// resetValidation(profileFormElement, [profileNameInput, profileJobInput]);
   openModal(editProfileModal);
 });
 
@@ -104,6 +125,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardContainer.prepend(cardElement);
   evt.target.reset();
+  disableButtonElement(newPostSubBtn, settings);
   closeModal(newPostModal);
 }
 

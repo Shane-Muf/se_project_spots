@@ -8,6 +8,7 @@
 
 - Link to deployed page on Github: https://shane-muf.github.io/se_project_spots/
 - Link to recording of explanation for the project: https://drive.google.com/file/d/1zLoj2YlJlzF0a2UO-KZaGt7hhCfZPtb2/view?usp=sharing
+- Link to recording of Spots 6 Project Pitch: https://www.loom.com/share/d925600ebff24caea2660a4f4e3ee4e5
 
 ### Overview  
 
