@@ -33,7 +33,7 @@ const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
-const newPostSubBtn = document.querySelector(".modal__submit-btn");
+const newPostSubBtn = newPostModal.querySelector(".modal__submit-btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
 const profileFormElement = editProfileModal.querySelector(".modal__form");
@@ -70,24 +70,32 @@ function handleEscapeKey(event) {
   }
 }
 
-function openModal(modal) {
-  currentModal = modal;
-  modal.classList.add("modal_is-opened");
-  document.addEventListener("keydown", handleEscapeKey);
-  modal.addEventListener("click", function (event) {
-    console.log("Modal clicked!");
-    console.log("Clicked element:", event.target);
-    console.log("Element classes:", event.target.classList);
-    if (event.target.classList.contains("modal_is-opened")) {
-      closeModal(modal);
-    }
-  });
+function closeOnOverlay(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.currentTarget);
+    modal.addEventListener("click", function (event) {
+      console.log("Modal clicked!");
+      console.log("Clicked element:", event.target);
+      console.log("Element classes:", event.target.classList);
+      if (event.target.classList.contains("modal_is-opened")) {
+        closeModal(modal);
+      }
+    });
+  }
+
+  function openModal(modal) {
+    currentModal = modal;
+    modal.classList.add("modal_is-opened");
+    document.addEventListener("keydown", handleEscapeKey);
+    modal.addEventListener("click", closeOnOverlay);
+  }
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   document.removeEventListener("keydown", handleEscapeKey);
 }
+
 profileEditBtn.addEventListener("click", function () {
   profileNameInput.value = profileNameElement.textContent;
   profileJobInput.value = profileJobElement.textContent;
