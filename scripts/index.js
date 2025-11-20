@@ -25,7 +25,7 @@ const initialCards = [
   },
 ];
 
-const formModal = document.querySelector(".modal__form");
+let currentModal = null;
 
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -51,10 +51,6 @@ const addCardFormElement = newPostModal.querySelector(".modal__form");
 const cardNameInput = addCardFormElement.querySelector("#image-caption-input");
 const cardLinkInput = addCardFormElement.querySelector("#image-link-input");
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.cloneNode(true);
-
 const cardContainer = document.querySelector(".cards__list");
 
 const modalPreviewElement = document.querySelector("#preview-modal");
@@ -73,7 +69,7 @@ function handleEscapeKey(event) {
 function closeOnOverlay(evt) {
   if (evt.target.classList.contains("modal")) {
     closeModal(evt.currentTarget);
-    modal.addEventListener("click", function (event) {
+    evt.currentTarget.addEventListener("click", function (event) {
       console.log("Modal clicked!");
       console.log("Clicked element:", event.target);
       console.log("Element classes:", event.target.classList);
@@ -82,18 +78,19 @@ function closeOnOverlay(evt) {
       }
     });
   }
+}
 
-  function openModal(modal) {
-    currentModal = modal;
-    modal.classList.add("modal_is-opened");
-    document.addEventListener("keydown", handleEscapeKey);
-    modal.addEventListener("click", closeOnOverlay);
-  }
+function openModal(modal) {
+  currentModal = modal;
+  modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
+  modal.addEventListener("click", closeOnOverlay);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   document.removeEventListener("keydown", handleEscapeKey);
+  modal.removeEventListener("click", closeOnOverlay);
 }
 
 profileEditBtn.addEventListener("click", function () {
@@ -145,7 +142,9 @@ initialCards.forEach(function (card) {
 });
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
+  const cardElement = document
+    .querySelector("#card-template")
+    .content.cloneNode(true);
 
   const cardImageElement = cardElement.querySelector(".card__image");
   cardImageElement.src = data.link;
